@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Life at UCA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+    body {
+        position: relative; 
+    }
+    </style>
+</head>
+
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50" onload="startTime()">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">  
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#section1">Location</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section2">Naryn Campus Life</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#section3">Facilities</a>
+                </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">View Showcase</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#section41">Winter</a>
+                    <a class="dropdown-item" href="#section42">Fall</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="section1" class="container-fluid bg-success" style="padding-top:70px;padding-bottom:70px">
+        <h1>Location</h1>
+        <p>UCA's undergraduate programmes are located in world-class residential campuses in Naryn, Kyrgyzstan, and Khorog, Tajikistan, near the Tien Shan and Pamir mountains. The Tekeli campus, in the mountain ranges of Kazakhstan, is in the planning stage. In response to the needs of rural mountain communities, UCA has established its three Campuses away from major urban centres. They are on the historic Silk Road, and UCA hopes to be at the heart of the economic and intellectual transformation taking place in the region. </p>
+
+    </div>
+
+    <div id="section2" class="container-fluid bg-warning" style="padding-top:70px;padding-bottom:70px">
+        <h1>Naryn Campus Life</h1>
+        <p>On 5 September 2016, classes began for the first undergraduates at the University of Central Asia’s inaugural Naryn Campus. Since arriving at UCA, students have been busy exploring the brand new dormitories, classrooms, student lounges, state of the art library and cutting edge sports facilities. Catch a glimpse of student campus and academic life in action.</p>
+    </div>
+
+    <div id="section3" class="container-fluid bg-info" style="padding-top:70px;padding-bottom:70px">
+        <h1>Facilities</h1>
+        <p>UCA wants students to enjoy all aspects of their university experience. Each UCA campus has fitness clubs, gymnasiums, football pitches and tennis courts, and SAs will help organise tournaments and team events. Secure dormitories feature common areas, game rooms and lounges where students can socialise, study together, and host social events. Two students share one modular dorm room that can be configured in different ways, depending on their preferences. </p>
+    </div>
+
+    <div id="section41" class="container .bg-light" style="padding-top:70px;padding-bottom:70px">
+        <h1>Winter</h1>
+        <hr>
+        <p>Snowy mountains in Naryn - view from the dormitory in winter.</p>
+        
+        <p id = "time1"></p>
+        <p id = "date1"></p>
+        
+        <hr>
+        <img src = "pic1.jpeg" class = "container">
+    </div>
+
+    <div id="section42" class="container .bg-light" style="padding-top:70px;padding-bottom:70px">
+        <h1>Fall</h1>
+        <hr>
+        <p>Here is the same view but on a cloudy day in fall.</p>
+        
+        <p id = "time2"></p>
+        <p id = "date2"></p>
+        
+        <hr>
+        <img src = "pic2.jpeg" class = "container">
+    </div>
+
+
+    <script>
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        document.getElementById("date1").innerHTML = date;
+        document.getElementById("date2").innerHTML = date;
+        
+        function startTime() {
+            var current_time = new Date();
+            var time = current_time.getHours() + ":" + current_time.getMinutes() + ":" + current_time.getSeconds();
+            document.getElementById("time1").innerHTML = time;
+            document.getElementById("time2").innerHTML = time;
+            var t = setTimeout(startTime, 500);
+        }
+    </script>
+</body>
+</html>

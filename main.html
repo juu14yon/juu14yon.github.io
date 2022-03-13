@@ -1,24 +1,42 @@
+<!-- Adding HTML5 doctype directive and language -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Life at UCA</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Getting device width; initial zoom -->
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+<!-- Adding Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+<!-- Some additional styling -->
     <style>
     body {
         position: relative; 
     }
+    .blue1{
+        background: rgb(164, 237, 255);
+    }
+    .blue2{
+        background: rgb(198, 241, 255);
+    }
+    .blue3{
+        background: rgb(228, 248, 255);
+    }
+    p{
+        font-size: larger;
+    }
     </style>
 </head>
 
-
-<body data-spy="scroll" data-target=".navbar" data-offset="50" onload="startTime()">
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">  
+<!-- Enabling ScrollSpy, JS function to display time -->
+<body data-spy = "scroll" data-target = ".navbar" data-offset = "50" onload = "startTime()">
+<!-- Navigation bar. Its styling, its items with reference to page contents -->
+    <nav class="navbar navbar-expand-sm bg-info navbar-dark fixed-top">  
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="#section1">Location</a>
@@ -38,61 +56,79 @@
             </li>
         </ul>
     </nav>
-
-    <div id="section1" class="container-fluid bg-success" style="padding-top:70px;padding-bottom:70px">
+<!-- Fluid containers-sections with some text -->
+    <div id="section1" class="container-fluid blue1" style="padding-top:70px;padding-bottom:70px">
         <h1>Location</h1>
         <p>UCA's undergraduate programmes are located in world-class residential campuses in Naryn, Kyrgyzstan, and Khorog, Tajikistan, near the Tien Shan and Pamir mountains. The Tekeli campus, in the mountain ranges of Kazakhstan, is in the planning stage. In response to the needs of rural mountain communities, UCA has established its three Campuses away from major urban centres. They are on the historic Silk Road, and UCA hopes to be at the heart of the economic and intellectual transformation taking place in the region. </p>
-
     </div>
 
-    <div id="section2" class="container-fluid bg-warning" style="padding-top:70px;padding-bottom:70px">
+    <div id="section2" class="container-fluid blue2" style="padding-top:70px;padding-bottom:70px">
         <h1>Naryn Campus Life</h1>
-        <p>On 5 September 2016, classes began for the first undergraduates at the University of Central Asia’s inaugural Naryn Campus. Since arriving at UCA, students have been busy exploring the brand new dormitories, classrooms, student lounges, state of the art library and cutting edge sports facilities. Catch a glimpse of student campus and academic life in action.</p>
+        <p>On 5 September 2016, classes began for the first undergraduates at the University of Central Asia’s inaugural Naryn Campus. Since arriving at UCA, students have been busy exploring the brand new dormitories, classrooms, student lounges, state of the art library and cutting edge sports facilities.</p>
     </div>
 
-    <div id="section3" class="container-fluid bg-info" style="padding-top:70px;padding-bottom:70px">
+    <div id="section3" class="container-fluid blue3" style="padding-top:70px;padding-bottom:70px">
         <h1>Facilities</h1>
         <p>UCA wants students to enjoy all aspects of their university experience. Each UCA campus has fitness clubs, gymnasiums, football pitches and tennis courts, and SAs will help organise tournaments and team events. Secure dormitories feature common areas, game rooms and lounges where students can socialise, study together, and host social events. Two students share one modular dorm room that can be configured in different ways, depending on their preferences. </p>
     </div>
-
-    <div id="section41" class="container .bg-light" style="padding-top:70px;padding-bottom:70px">
+<!-- Fixed width containers with some text, photos, and real-time date&time -->
+    <div id="section41" class="container" style="padding-top:70px;padding-bottom:70px">
         <h1>Winter</h1>
         <hr>
         <p>Snowy mountains in Naryn - view from the dormitory in winter.</p>
-        
         <p id = "time1"></p>
         <p id = "date1"></p>
-        
         <hr>
         <img src = "pic1.jpeg" class = "container">
     </div>
 
-    <div id="section42" class="container .bg-light" style="padding-top:70px;padding-bottom:70px">
+    <div id="section42" class="container" style="padding-top:70px;padding-bottom:70px">
         <h1>Fall</h1>
         <hr>
         <p>Here is the same view but on a cloudy day in fall.</p>
-        
         <p id = "time2"></p>
         <p id = "date2"></p>
-        
         <hr>
         <img src = "pic2.jpeg" class = "container">
     </div>
+<!-- Link back to the top of the page -->
+    <div>
+        <p style="text-align:center"><a class="text-muted" href="#section1">Return to top</a></p><br>
+    </div>
 
-
+<!-- Function to du=isplay real-time date&time -->
     <script>
         var today = new Date();
+// Getting current date and displaying it
         var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         document.getElementById("date1").innerHTML = date;
         document.getElementById("date2").innerHTML = date;
         
         function startTime() {
+// Getting current time
             var current_time = new Date();
-            var time = current_time.getHours() + ":" + current_time.getMinutes() + ":" + current_time.getSeconds();
+            var hour = current_time.getHours();
+            var minute = current_time.getMinutes();
+            var second = current_time.getSeconds();
+// Adding 0 to time for aesthetic purposes (9:1:5 becomes 09:01:05)
+            if (hour < 10) {
+                hour = "0" + hour;
+            }
+
+            if (minute < 10) {
+                minute = "0" + minute;
+            }
+
+            if (second < 10) {
+                second = "0" + second;
+            }
+// Displaying time every so often
+            var time = hour + ":" + minute + ":" + second;
             document.getElementById("time1").innerHTML = time;
             document.getElementById("time2").innerHTML = time;
             var t = setTimeout(startTime, 500);
         }
     </script>
+
 </body>
 </html>

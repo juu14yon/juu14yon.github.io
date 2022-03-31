@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Page 10
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+    <!-- Adding Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Some additional styling -->
+        <style>
+        body {
+            position: relative; 
+        }
+        .margin{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        </style>
+    </head>
+
+    <body data-offset = "50">
+        <div class="container" style="padding-top: 70px; padding-bottom: 70px;">
+            <h1 class="text-success">Form - Simple Calculator Using Input Element with Numbers and JavaScript</h1>
+            <p class="text-danger">Input integer numbers between 0 and 100. Then apply appropriate operation...</p>
+            <form class="was-validated" action="javascript:func();">
+                <div class="form-group">
+                    <input type="text" id="num1" class="form-control" required>
+                    <div class="valid-feedback"></div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="num2" class="form-control" required>
+                    <div class="valid-feedback"></div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-info" onclick="calculate('+')">
+                        + <span class="badge badge-light">1st</span>
+                    </button>
+                    <button type="submit" class="btn btn-danger" onclick="calculate('-')">
+                        - <span class="badge badge-light">2nd</span>
+                    </button>
+                    <button type="submit" class="btn btn-warning" onclick="calculate('*')"">
+                        * <span class="badge badge-light">3rd</span>
+                    </button>
+                    <button type="submit" class="btn btn-success" onclick="calculate('/')"">
+                        / <span class="badge badge-light">4th</span>
+                    </button>
+                </div>
+
+                <p class="text-secondary">Result:</p>
+                <input type="text" id="result" class="form-control" readonly>
+            </form> 
+        </div>
+
+        <div class="margin">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="page9.html">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="pagemain.html">Return to main</a></li>
+                <li class="page-item"><a class="page-link" href="page11.html">Next</a></li>
+            </ul>
+        </div>
+
+        <script>
+            function check(num){
+                if (num<0||num>100){
+                    return false;
+                }
+                return true;
+            }
+            function calculate(sign){
+                let num1 = document.getElementById("num1");
+                let num2 = document.getElementById("num2");
+                let a = parseInt(num1.value);
+                let b = parseInt(num2.value);
+                if (check(a)){
+                    if (check(b)){
+                        switch (sign){
+                            case '+':
+                                document.getElementById("result").value = a+b;
+                                break;
+                            case '-':
+                                document.getElementById("result").value = a-b;
+                                break;
+                            case '*':
+                                document.getElementById("result").value = a*b;
+                                break;
+                            case '/':
+                                if (b==0){
+                                    document.getElementById("result").value = "Division by zero";
+                                }
+                                else{
+                                    document.getElementById("result").value = a/b;
+                                }
+                                break;
+                        }
+                    }
+                    else{
+                        num2.value = "Enter value 0-100";
+                    }
+                }
+                else{
+                    num1.value = "Enter value 0-100";
+                }
+            }
+    
+        </script>
+    </body>
+</html>

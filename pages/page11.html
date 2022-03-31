@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Page 11
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+    <!-- Adding Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Some additional styling -->
+        <style>
+        body {
+            position: relative; 
+        }
+        .margin{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        </style>
+    </head>
+
+    <body data-offset = "50">
+        <div class="container" style="padding-top: 70px; padding-bottom: 70px;">
+            <h1>Quiz</h1>
+            <h2 class="text-success" id="question">An example of output device is ...</h2>
+            <form>
+                <div class="form-check">
+                    <label class="form-check-label" for="a" id="labela">
+                    <input type="radio" class="form-check-input" id="a" name="optradio" value="a" checked>Keyboard
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="b" id="labelb">
+                    <input type="radio" class="form-check-input" id="b" name="optradio" value="b">Mouse
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="c" id="labelc">
+                    <input type="radio" class="form-check-input" id="c" name="optradio" value="c">Monitor
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="d" id="labeld">
+                    <input type="radio" class="form-check-input" id="d" name="optradio" value="d">Byte
+                    </label>
+                </div>
+                <hr>
+                <button type="button" class="btn btn-link" id="check" onclick="check1()"><h2>Check</h2></button>
+            </form>
+        </div>
+
+        <div class="margin">
+            <ul class="pagination justify-content-center">
+                <li class="page-item"><a class="page-link" href="page10.html">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="pagemain.html">Return to main</a></li>
+                <li class="page-item"><a class="page-link" href="page12.html">Next</a></li>
+            </ul>
+        </div>
+    </body>
+
+    <script>
+        function check1(){
+            if (document.getElementById("c").checked){
+                document.getElementById("check").innerHTML = "<h2>Correct answer! Please click this text again to go to next question.</h2>";
+            }
+            else{
+                document.getElementById("check").innerHTML = "<h2>Wrong answer. Please click this text again to go to next question.</h2>";
+            }
+            document.getElementById("check").setAttribute('onclick', 'change()');
+        }
+
+        function check2(){
+            if (document.getElementById("b").checked){
+                document.getElementById("check").innerHTML = "<h2>Correct answer! Thank you for your response</h2>";
+            }
+            else{
+                document.getElementById("check").innerHTML = "<h2>Wrong answer. Thank you for your response</h2>";
+            }
+        }
+
+        function change(){
+            document.getElementById("check").innerHTML = "<h2>Check</h2>";
+            document.getElementById("check").setAttribute('onclick', 'check2()');
+            document.getElementById("question").innerHTML = "1 kilobyte is equal to ...";
+            document.getElementById("labela").lastChild.textContent = "1000 bytes";
+            document.getElementById("labelb").lastChild.textContent = "1024 bytes";
+            document.getElementById("labelc").lastChild.textContent = "1204 bytes";
+            document.getElementById("labeld").lastChild.textContent = "10 bytes";
+        }
+    </script>
+</html>

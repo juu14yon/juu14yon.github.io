@@ -1,23 +1,52 @@
 <!DOCTYPE html>
 <html manifest="cmf.manifest">
 <head>
-<title>Offline Web Application</title>
-<script>
-function changeImage()
-{
-document.images["jsbutton"].src= "Images/WaterfallAnimatedGif.gif";
-return true;
-}
-function changeImageMore()
-{
-document.images["jsbutton"].src= "Images/Animated_fire.gif";
-return true;
-}
-</script>
+    <title>Offline Web Application</title>
+    <script>
+        var refs = ["Images/img1.jpg", "Images/img2.jpg", "Images/img3.jpg", "Images/img4.webp"];
+        var slide = 0;
+    function nextImage()
+        {
+        document.images["currentSlide"].src= refs[(slide+1)%4];
+        slide = slide + 1;
+        return true;
+        }
+
+    function previousImage()
+        {
+        document.images["currentSlide"].src= refs[(slide-1)%4];
+        slide = slide + 1;
+        return true;
+        }
+    </script>
+
+    <style>
+        img {
+            height: 350px;
+            margin: 20px 0;
+        }
+        input {
+            width: 100px;
+            height: 50px;
+            border: 0;
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: darkgray;
+        }
+
+        input:hover {
+            background-color: darkgray;
+            color: white;
+            transition: 0.5s ease-in-out;
+        }
+    </style>
 </head>
 <body>
-<img name="jsbutton" src="Images/Animated_fire.gif" width="25%" height="25%" border="0">
-<br><input type=button onclick="changeImage()" value="Lets Show Water"></input>
-&nbsp;&nbsp;<input type=button onclick="changeImageMore()" value="Lets Show Fire"></input>
+    <center>
+        <img name="currentSlide" src="Images/img1.jpg">
+        <br>
+        <input type=button onclick="previousImage()" value="<"></input>
+        &nbsp;&nbsp;<input type=button onclick="nextImage()" value=">"></input>
+    </center>
 </body>
 </html>
